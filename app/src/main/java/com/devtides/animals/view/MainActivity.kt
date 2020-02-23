@@ -10,7 +10,7 @@ import java.security.AccessControlContext
 
 class MainActivity : AppCompatActivity() {
 
-
+    //lateinit: a variavel nao recebera um valor inicial, sera instanciada posteriormente
     private lateinit var navController: NavController;
 
 
