@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="animal"
+            type="com.devtides.animals.model.Animal" />
+
+        <variable
+            name="pallete"
+            type="com.devtides.animals.model.AnimalPallete" />
+    </data>
+
+<LinearLayout
+    android:id="@+id/animalLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@{pallete.color}"
     tools:context=".view.DetailFragment">
 
+<ImageView
+    android:id="@+id/animalImage"
+    android:ImageUrl="@{animal.imageUrl}"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scaleType="center"
+    android:minHeight="200dp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Title"
+        android:layout_margin="4dp"
+        android:text="@{animal.name}"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style="@style/Title"
+    android:layout_margin="4dp"
+    android:text="@{animal.location}"/>
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style="@style/Title"
+    android:layout_margin="4dp"
+    android:text="@{animal.lifeSpan}"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Title"
+        android:layout_margin="4dp"
+        android:text="@{animal.diet}"/>
+
+</LinearLayout>
+
+</layout>

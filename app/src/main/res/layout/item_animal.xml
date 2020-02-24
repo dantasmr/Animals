@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="animal"
+            type="com.devtides.animals.model.Animal" />
+
+        <variable
+            name="listener"
+            type="com.devtides.animals.view.AnimailClickListener" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/animalLayout"
+    android:onClick="@{listener::onClick}"
+    android:tag="@{animal.name}"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -9,6 +25,7 @@
         android:id="@+id/animalImage"
         android:src="@mipmap/ic_launcher"
         android:scaleType="center"
+        android:ImageUrl="@{animal.imageUrl}"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,16 +33,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/animalName"
-        style="@style/Title"
+          style="@style/Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#afff"
         android:gravity="center"
         android:padding="4dp"
-        android:text="Animals Name"
+        android:text="@{animal.name}"
         app:layout_constraintBottom_toBottomOf="@+id/animalImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/animalImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
